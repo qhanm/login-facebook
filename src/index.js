@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createStore} from "redux";
+import rootReducer from "./redux/rootReducer";
+import {Provider} from "react-redux";
+import 'react-sortable-tree/style.css'; // This only needs to be imported once in your app
 
+const store = createStore(rootReducer)
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
